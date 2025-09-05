@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.square {
+    /* Changed flex-basis to fit three items per row */
+    flex: 1 1 calc(33.333% - 20px);
+    height: 100%;
+    border: 10px solid white;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 5px;
+    /* Added margin for spacing between buttons */
+}
+
+.square h1 {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.square p {
+    font-size: 1.75rem;
+    max-width: 700px;
+    line-height: 1.9;
+    transition: transform 0.3s ease;
+}
+
+/* Simple smooth scale-up on hover */
+.square:hover h1,
+.square:hover p {
+    transform: scale(1.15);
+}
+
+.square-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    /* This flex rule is now less specific to allow for three buttons */
+    flex: 1 1 auto;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .square {
+        width: 100%;
+        /* Adjusted height to fit three items on a single screen */
+        height: 30vh;
+    }
+
+    .square h1 {
+        font-size: 2.5rem;
+    }
+
+    .square p {
+        font-size: 1.25rem;
+    }
+}
